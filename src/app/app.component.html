@@ -1,0 +1,14 @@
+<p-toast
+  position="top-right"
+  [showTransformOptions]="'translateY(100%)'"
+  [showTransformOptions]="'translateX(100%)'"
+  [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"
+></p-toast>
+
+<ng-container *ngIf="usuarioLogado() === true; else elseTemplate">
+  <app-header></app-header>
+</ng-container>
+
+<ng-template #elseTemplate>
+  <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,69 @@
+<div class="card">
+  <div class="table-container">
+    <h2>Clientes</h2>
+    <div class="header flex justify-content-between">
+      <div class="search">
+        <span class="p-input-icon-left flex align-items-center">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" [(ngModel)]="filtroNome" placeholder="Digite para Buscar" />
+        </span>
+      </div>
+
+      <div class="addButton">
+        <button class="registerbtn" (click)="novoCliente()">
+          <span class="material-symbols-outlined "> add </span>
+            Novo cliente </button>
+      </div>
+    </div>
+
+    <div class="table-responsivo">
+      <table #tb class="table">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Exemplo de linha de tabela -->
+          <tr *ngFor="let cliente of clientes | filtro: filtroNome">
+            <td>{{cliente.codigo}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.endereco}}</td>
+            <td>{{cliente.cidade}}</td>
+            <td>{{cliente.estado}}</td>
+            <td class="actions">
+              <button class="button-edit" pTooltip="Editar" tooltipPosition="top"
+               (click)="editarCliente(cliente)">
+                <span class="material-symbols-outlined">
+                  edit_note
+                </span>
+              </button>
+              <button class="button-delete"  pTooltip="Excluir" tooltipPosition="top"
+              (click)="deletarCliente(cliente)">
+                <span class="material-symbols-outlined">
+                delete
+                </span></button>
+            </td>
+          </tr>
+          <!-- Outras linhas da tabela aqui -->
+        </tbody>
+        <tfoot *ngIf="!clientes">
+          <tr>
+            <td colspan="6">Nenhum cliente encontrado.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div>
+</div>
+

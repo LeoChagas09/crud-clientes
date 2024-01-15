@@ -1,0 +1,117 @@
+@media screen and (max-width: 675px) {
+  .card {
+   display: flex;
+   flex-direction: column;
+   width: 75% !important;
+   margin-bottom: 20px !important;
+  }
+
+  .formInput {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .inputs {
+    width: 100% !important;
+  }
+
+}
+
+.card {
+  width: 55%;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.formInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formInput .inputs {
+  width: 49%;
+}
+
+.formInputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 940px) {
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .formInputs .inputs {
+    width: 100% !important;
+  }
+}
+
+.formInputs .inputs {
+  width: 32%;
+}
+
+.inputs {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+}

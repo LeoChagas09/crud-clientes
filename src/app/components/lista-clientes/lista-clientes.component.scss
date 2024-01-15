@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+}
+
+@media screen and (max-width: 835px){
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .addButton {
+    margin-bottom: 10px;
+    order: -1;
+  }
+
+  .search {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table th {
+    text-align: center;
+  }
+
+  .table td {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table td:last-child {
+    border-bottom: none;
+  }
+
+  td > button {
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (min-width: 836px) and (max-width: 1225px) {
+  .table td .button-delete {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .table td > button {
+    display: flex;
+    gap: 5px;
+    border-radius: 20%;
+    padding: 5px;
+  }
+}
+
+h2 {
+  color: #072353;
+}
+
+.card {
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  padding:  0 20px 100px 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.search {
+  margin-bottom: 10px;
+}
+
+.addButton {
+  margin-bottom: 10px;
+}
+
+.table-responsivo {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registerbtn {
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: 1px solid white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  background-color: #22C55E;
+  color: white;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.registerbtn:hover {
+  cursor: pointer;
+}
+
+.registerbtn .material-symbols-outlined {
+  display: flex;
+  align-items: center;
+}
+
+.table th, .table td {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  text-align: center; /* Alinhamento horizontal no centro */
+  vertical-align: middle; /* Alinhamento vertical no centro */
+}
+
+.table th {
+  background-color: #072353;
+  color: white;
+  padding: 20px 0px;
+}
+
+.table td {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.table tbody {
+  border-bottom: 1px solid #ddd;
+}
+
+.table tfoot td {
+  font-weight: bold;
+}
+
+td > button {
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.button-edit:hover,
+.button-delete:hover {
+  cursor: pointer;
+}
+
+.button-edit {
+  border: 2px solid transparent;
+  background-color: rgb(255, 128, 0);
+  color: white;
+  font-size: 20px;
+}
+
+.button-delete {
+  border: 2px solid transparent;
+  background-color: rgb(255, 55, 0);
+  color: white;
+  margin-left: 5px;
+  font-size: 20px;
+}

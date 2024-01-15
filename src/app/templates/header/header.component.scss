@@ -1,0 +1,20 @@
+a{
+  text-decoration: none;
+}
+
+.text {
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  padding-right: 4px;
+
+  @media screen and (max-width: 835px) {
+    padding-right: 0px;
+    font-size: 13px;
+  }
+
+}
+
+.logo {
+  width: 70%;
+}

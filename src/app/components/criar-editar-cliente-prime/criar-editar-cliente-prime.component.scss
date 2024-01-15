@@ -1,0 +1,47 @@
+:host ::ng-deep {
+  p-card.p-element {
+    width: 60%;
+
+    @media (max-width: 1404px) {
+      width: 60%;
+    }
+
+    @media screen and (max-width: 675px){
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 675px) {
+  .card {
+   display: flex;
+   flex-direction:column;
+  }
+
+  .divInput {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .divInputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 940px){
+  .divInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .divInputs .inputs {
+    width: 100% !important;
+  }
+}

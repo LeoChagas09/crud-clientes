@@ -1,0 +1,100 @@
+<div class="card">
+  <p-card styleClass="shadow-3 m-5" header="Clientes">
+    <p-table #dt [value]="clientes" [rows]="10" [paginator]="true"  [rowHover]="true" dataKey="codigo"
+     styleClass="p-datatable-sm p-datatable-gridlines p-datatable-responsive-demo"
+      [globalFilterFields]="['codigo','nome', 'cpf', 'telefone', 'endereco', 'cidade', 'estado']" [rowsPerPageOptions]="pageSize"
+      currentPageReportTemplate="Mostrando {first} de {last} para {totalRecords} registros" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+        <div class="cabecalho flex justify-content-between">
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" [(ngModel)]="searchField" (input)="dt.filterGlobal(searchField, 'contains')"
+              placeholder="Buscar..." />
+          </span>
+
+          <div>
+            <button pButton pRipple label="Novo Cliente" icon="pi pi-plus" class="p-button-success mr-2"
+            (click)="novoCliente()" ></button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="codigo" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Código
+              <p-sortIcon field="codigo"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="codigo" display="menu" placeholder="Buscar código"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="nome" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Nome
+              <p-sortIcon field="nome"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="nome" display="menu" placeholder="Buscar nome"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="cpf" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              CPF
+              <p-sortIcon field="cpf"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="cpf" display="menu" placeholder="Buscar cpf"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="telefone" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Telefone
+              <p-sortIcon field="telefone"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="telefone" display="menu" placeholder="Buscar telefone"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="endereco" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Endereço
+              <p-sortIcon field="endereco"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="endereco" display="menu" placeholder="Buscar endereço"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="cidade" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Cidade
+              <p-sortIcon field="cidade"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="cidade" display="menu" placeholder="Buscar cidade"></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="estado" style="min-width:5rem">
+            <div class="flex justify-content-between align-items-center">
+              Estado
+              <p-sortIcon field="estado"></p-sortIcon>
+              <p-columnFilter type="text" class="ml-auto" field="estado" display="menu" placeholder="Buscar estado"></p-columnFilter>
+            </div>
+          </th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cliente>
+        <tr>
+          <td style="min-width: 8rem;">{{ cliente.codigo }}</td>
+          <td style="min-width: 8rem;">{{ cliente.nome }}</td>
+          <td style="min-width: 8rem;">{{ cliente.cpf }}</td>
+          <td style="min-width: 8rem;">{{ cliente.telefone }}</td>
+          <td style="min-width: 8rem;">{{ cliente.endereco }}</td>
+          <td style="min-width: 8rem;">{{ cliente.cidade }}</td>
+          <td style="min-width: 8rem;">{{ cliente.estado }}</td>
+          <td class="flex justify-content-center">
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2"
+              (click)="editarCliente(cliente)"></button>
+
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+              (click)="deletarCliente(cliente)"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="9">Nenhum cliente encontrado.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>

@@ -1,0 +1,141 @@
+<div class="card flex justify-content-center">
+  <p-card styleClass="shadow-3 m-5" header="Adicionar Cliente" *ngIf="!codigo">
+    <form [formGroup]="formCliente" (ngSubmit)="salvar()">
+      <div class="card flex flex-column justify-content-between gap-2">
+
+        <div class="divInput flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-6 flex-column">
+            <label>Codigo</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="codigo" placeholder="Código"
+              [ngClass]="{'ng-invalid': formCliente.controls['codigo'].invalid && formCliente.controls['codigo'].touched}" />
+              <div *ngIf="formCliente.get('codigo')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-6 flex-column">
+            <label>Nome</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="nome" placeholder="Nome"
+              [ngClass]="{'ng-invalid': formCliente.controls['nome'].invalid && formCliente.controls['nome'].touched}" />
+              <div *ngIf="formCliente.get('nome')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+        </div>
+
+        <div class="divInput flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-6 flex-column">
+            <label>CPF</label>
+            <p-inputMask styleClass="w-full" class="ng-invalid ng-dirty" mask="999.999.999-99"
+              placeholder="999.999.999-99" formControlName="cpf" name="cpf"
+              [ngClass]="{'ng-invalid': formCliente.controls['cpf'].invalid && formCliente.controls['cpf'].touched}"></p-inputMask>
+            <div *ngIf="formCliente.get('cpf')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-6 flex-column">
+            <label>Telefone</label>
+            <p-inputMask styleClass="w-full"class="ng-invalid ng-dirty" mask="(99) 99999-9999"
+            placeholder="(99) 99999-9999" formControlName="telefone" name="telefone"
+            [ngClass]="{'ng-invalid': formCliente.controls['telefone'].invalid && formCliente.controls['telefone'].touched}"></p-inputMask>
+            <div *ngIf="formCliente.get('telefone')?.errors" class="text-red-500">
+              Campo Obrigatório</div>
+          </div>
+        </div>
+
+        <div class="divInputs flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-4 flex-column">
+            <label>Endereço</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="endereco" placeholder="Endereço"
+              [ngClass]="{'ng-invalid': formCliente.controls['endereco'].invalid && formCliente.controls['endereco'].touched}" />
+              <div *ngIf="formCliente.get('endereco')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-4 flex-column">
+            <label>Cidade</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="cidade" placeholder="Cidade"
+              [ngClass]="{'ng-invalid': formCliente.controls['cidade'].invalid && formCliente.controls['cidade'].touched}" />
+              <div *ngIf="formCliente.get('cidade')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-4 flex-column">
+            <label>Estado</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="estado" placeholder="Estado"
+              [ngClass]="{'ng-invalid': formCliente.controls['estado'].invalid && formCliente.controls['estado'].touched}" />
+              <div *ngIf="formCliente.get('estado')?.errors" class="text-red-500">Campo Obrigatório</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex flex-row justify-content-end align-content-center align-items-center mt-3 gap-2">
+        <p-button styleClass="p-button-danger" label="Voltar" (onClick)="voltar()"></p-button>
+        <p-button [disabled]="!formCliente.valid" type="submit" label="Salvar"></p-button>
+      </div>
+    </form>
+  </p-card>
+
+  <p-card styleClass="shadow-3 m-5" header="Editar Cliente" *ngIf="codigo">
+    <form [formGroup]="formCliente" (ngSubmit)="salvar()">
+      <div class="card flex flex-column justify-content-between gap-2">
+
+        <div class="divInput flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-6 flex-column">
+            <label>Codigo</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="codigo" placeholder="Código"
+              [ngClass]="{'ng-invalid': formCliente.controls['codigo'].invalid && formCliente.controls['codigo'].touched}" />
+              <div *ngIf="formCliente.get('codigo')?.errors && formCliente.get('codigo')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-6 flex-column">
+            <label>Nome</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="nome" placeholder="Nome"
+              [ngClass]="{'ng-invalid': formCliente.controls['nome'].invalid && formCliente.controls['nome'].touched}" />
+              <div *ngIf="formCliente.get('nome')?.errors && formCliente.get('nome')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+        </div>
+
+        <div class="divInput flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-6 flex-column">
+            <label>CPF</label>
+            <p-inputMask styleClass="w-full" class="ng-invalid ng-dirty" mask="999.999.999-99"
+              placeholder="999.999.999-99" formControlName="cpf" name="cpf"
+              [ngClass]="{'ng-invalid': formCliente.controls['cpf'].invalid && formCliente.controls['cpf'].touched}"></p-inputMask>
+            <div *ngIf="formCliente.get('cpf')?.errors && formCliente.get('cpf')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-6 flex-column">
+            <label>Telefone</label>
+            <p-inputMask styleClass="w-full"class="ng-invalid ng-dirty" mask="(99) 99999-9999"
+            placeholder="(99) 99999-9999" formControlName="telefone" name="telefone"
+            [ngClass]="{'ng-invalid': formCliente.controls['telefone'].invalid && formCliente.controls['telefone'].touched}"></p-inputMask>
+            <div *ngIf="formCliente.get('telefone')?.errors && formCliente.get('telefone')?.touched" class="text-red-500">
+              Campo Obrigatório</div>
+          </div>
+        </div>
+
+        <div class="divInputs flex gap-2 align-items-center mt-3">
+          <div class="inputs flex w-4 flex-column">
+            <label>Endereço</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="endereco" placeholder="Endereço"
+              [ngClass]="{'ng-invalid': formCliente.controls['endereco'].invalid && formCliente.controls['endereco'].touched}" />
+              <div *ngIf="formCliente.get('endereco')?.errors && formCliente.get('endereco')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-4 flex-column">
+            <label>Cidade</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="cidade" placeholder="Cidade"
+              [ngClass]="{'ng-invalid': formCliente.controls['cidade'].invalid && formCliente.controls['cidade'].touched}" />
+              <div *ngIf="formCliente.get('cidade')?.errors && formCliente.get('cidade')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+
+          <div class="inputs flex w-4 flex-column">
+            <label>Estado</label>
+            <input pInputText type="text" class="ng-invalid ng-dirty" formControlName="estado" placeholder="Estado"
+              [ngClass]="{'ng-invalid': formCliente.controls['estado'].invalid && formCliente.controls['estado'].touched}" />
+              <div *ngIf="formCliente.get('estado')?.errors && formCliente.get('estado')?.touched" class="text-red-500">Campo Obrigatório</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex flex-row justify-content-end align-content-center align-items-center mt-3 gap-2">
+        <p-button styleClass="p-button-danger" label="Voltar" (onClick)="voltar()"></p-button>
+        <p-button [disabled]="!formCliente.valid" type="submit" label="Salvar"></p-button>
+      </div>
+    </form>
+  </p-card>
+</div>

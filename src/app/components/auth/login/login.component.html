@@ -1,0 +1,27 @@
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+
+        <div class="header">
+          <img src="assets/logo.png" id="img-top" alt="" />
+          <!-- <h2 class="titulo">CRUD CLIENTES</h2> -->
+        </div>
+
+        <div class="inputbox">
+          <i class="pi pi-user"></i>
+          <input type="text" formControlName="login" (change)="onUsernameChange()" [class.filled]="usernameFilled">
+          <label>Usuário</label>
+        </div>
+        <div class="inputbox">
+          <a (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <i class="{{hide ? 'pi pi-eye-slash' : 'pi pi-eye'}}"></i>
+          </a>
+          <input [type]="hide ? 'password' : 'text'" formControlName="senha" (change)="onPasswordChange()" [class.filled]="passwordFilled">
+          <label>Senha</label>
+        </div>
+        <button type="submit" [disabled]="!this.loginForm.valid">Entrar</button>
+      </form>
+    </div>
+  </div>
+</section>
